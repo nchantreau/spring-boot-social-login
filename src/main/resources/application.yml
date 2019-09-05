@@ -1,0 +1,49 @@
+security:
+  oauth2:
+    client:
+      client-id: acme
+      client-secret: acmesecret
+      scope: read,write
+      auto-approve-scopes: '.*'
+
+# Refer to https://developers.facebook.com/docs/facebook-login/overview
+facebook:
+  client:
+    clientId: <ClientId>
+    clientSecret: <ClientSecret>
+    accessTokenUri: https://graph.facebook.com/oauth/access_token
+    userAuthorizationUri: https://www.facebook.com/dialog/oauth
+    tokenName: oauth_token
+    authenticationScheme: query
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://graph.facebook.com/me
+
+# Refer to https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/
+github:
+  client:
+    clientId: <ClientId>
+    clientSecret: <ClientSecret>
+    accessTokenUri: https://github.com/login/oauth/access_token
+    userAuthorizationUri: https://github.com/login/oauth/authorize
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://api.github.com/user
+
+# Refer to https://developers.google.com/identity/protocols/OAuth2WebServer
+google:
+  client:
+    clientId: <ClientId>
+    clientSecret: <ClientSecret>
+    accessTokenUri: https://www.googleapis.com/oauth2/v4/token
+    userAuthorizationUri: https://accounts.google.com/o/oauth2/v2/auth
+    clientAuthenticationScheme: form
+    scope:
+      - email
+      - profile
+  resource:
+    userInfoUri: https://www.googleapis.com/oauth2/v3/userinfo
+
+logging:
+  level:
+    org.springframework.security: DEBUG

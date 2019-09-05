@@ -1,0 +1,60 @@
+[[_social_login_github]]
+= Login with Facebook, Github or Google OAuth APIs
+
+Based on https://github.com/spring-guides/tut-spring-boot-oauth2[Spring Guides]
+
+The application presents several login links to authenticate with chosen providers (Facebook, Github or Google).
+
+== Configuration
+The corresponding configuration
+
+.application.yml
+[source,yaml]
+----
+facebook:
+  client:
+    clientId: <ClientId>
+    clientSecret: <ClientSecret>
+    accessTokenUri: https://graph.facebook.com/oauth/access_token
+    userAuthorizationUri: https://www.facebook.com/dialog/oauth
+    tokenName: oauth_token
+    authenticationScheme: query
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://graph.facebook.com/me
+
+github:
+  client:
+    clientId: <ClientId>
+    clientSecret: <ClientSecret>
+    accessTokenUri: https://github.com/login/oauth/access_token
+    userAuthorizationUri: https://github.com/login/oauth/authorize
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://api.github.com/user
+
+google:
+  client:
+    clientId: <ClientId>
+    clientSecret: <ClientSecret>
+    accessTokenUri: https://www.googleapis.com/oauth2/v4/token
+    userAuthorizationUri: https://accounts.google.com/o/oauth2/v2/auth
+    clientAuthenticationScheme: form
+    scope:
+      - email
+      - profile
+  resource:
+    userInfoUri: https://www.googleapis.com/oauth2/v3/userinfo
+----
+
+== Client details
+
+The client details here are registered with https://developers.facebook.com[Facebook], https://github.com/settings/developers[Github] and https://console.developers.google.com[Google] with the address `localhost:8080`.
+
+== Links
+
+To know more... +
+https://developers.facebook.com/docs/facebook-login/overview +
+https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/ +
+https://developers.google.com/identity/protocols/OAuth2WebServer +
+
