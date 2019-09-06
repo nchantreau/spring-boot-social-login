@@ -1,4 +1,4 @@
-[[_social_login_github]]
+[[_spring_boot_social_login_]]
 = Login with Facebook, Github or Google OAuth APIs
 
 Based on https://github.com/spring-guides/tut-spring-boot-oauth2[Spring Guides]
